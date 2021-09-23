@@ -1,23 +1,34 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+using WebStore123.Models;
 
-namespace _21._09.Controllers
+namespace WebStore123.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index() // http://localhost:5000/Home/Index
+        private static readonly List<Employee> _Employees = new()
         {
-            //  return Content("Контроллер индекс");
+            new Employee { Id = 1, LastName = "Иванов", FirstName = "Иван", Patronymic = "Иванович", Age = 27 },
+            new Employee { Id = 2, LastName = "Сергеев", FirstName = "Сергей", Patronymic = "Сергеевич", Age = 17 },
+            new Employee { Id = 3, LastName = "Денисов", FirstName = "Денис", Patronymic = "Денисович", Age = 27 },
+        };
+
+        public IActionResult Index()
+        {
             return View();
         }
+
         public IActionResult SecondAction(string id)
         {
-            return Content($"Second action with{id}");
+            return Content($"Second Action With parametr {id}");
         }
 
-
+        public IActionResult Employees()
+        {
+            return View(_Employees);
+        }
     }
 }
