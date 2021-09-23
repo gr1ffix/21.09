@@ -10,7 +10,8 @@ namespace _21._09.Controllers
     {
         public IActionResult Index() // http://localhost:5000/Home/Index
         {
-            return Content("Контроллер индекс");
+            //  return Content("Контроллер индекс");
+            return View();
         }
         public IActionResult SecondAction(string id)
         {
