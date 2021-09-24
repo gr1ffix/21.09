@@ -11,5 +11,6 @@
         public string Patronymic { get; set; }
 
         public int Age { get; set; }
+
     }
 }
